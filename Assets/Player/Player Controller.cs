@@ -117,7 +117,13 @@ public class PlayerController : MonoBehaviour
         look();
         mantleCheck = MantleCheck();
         ikWeight = mantleCheck ? 1 : 0;
+        Debug.Log(isGrounded);
 
+        //if(animator.gett)
+        //{
+        //    transform.position += animator.deltaPosition;
+        //    transform.rotation = animator.rootRotation;
+        //}
 
         if(isVaulting)
         {
@@ -130,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position += animator.deltaPosition;
             transform.rotation = animator.rootRotation;
-            
+
 
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.96)
             {
@@ -152,6 +158,10 @@ public class PlayerController : MonoBehaviour
         handPositionSphere.transform.position = handPos;
     }
 
+    public void RootMotionOff()
+    {
+        animator.applyRootMotion = false;
+    }
     public void OnRun(InputValue inputValue)
     {
         isRun = inputValue.Get<float>() == 1 ? true : false;
@@ -173,13 +183,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isVaulting) return;
 
-
-        moveSpeed = isRun ? WalkSpeed : moveSpeed;
+        
+        moveSpeed = isRun ? RunSpeed : WalkSpeed;
         animator.SetBool("IsRun", isRun);
 
         moveInput = moveAction.ReadValue<Vector3>().normalized; 
         movement = transform.forward * moveInput.z + transform.right * moveInput.x;
-        movement.y = 0;
+        movement.y = rb.linearVelocity.y;
 
         #region Variation of Animator
         if(isGrounded)
@@ -224,7 +234,8 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Vertical", 0);
         }
 
-        animator.SetBool("Is Move", movement.magnitude > 0);
+
+        animator.SetBool("Is Move", moveInput.magnitude > 0 ? true : false);
         #endregion
 
         if(!isVaulting && CanMove(movement))
@@ -279,10 +290,12 @@ public class PlayerController : MonoBehaviour
             if (moveInput == Vector3.zero)
             {
                 animator.SetTrigger("Jump");
+                //animator.applyRootMotion = true;
             }
             else
             {
                 animator.SetTrigger("Jump");
+                //animator.applyRootMotion = true;
                 Jump();
             }
         }
@@ -293,24 +306,26 @@ public class PlayerController : MonoBehaviour
     {
         //if (!CanMove(movement)) return;
 
+
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpHeight , ForceMode.VelocityChange);
     }
 
     public bool GroundCheck()
     {
         RaycastHit hit;
-        if(Physics.Raycast(point1.transform.position, Vector3.down, out hit, 0.5f))
+        if(Physics.Raycast(point1.transform.position, Vector3.down, out hit, 0.45f))
         {
+            //animator.applyRootMotion = false;
             return true;
         }
 
+        //animator.applyRootMotion = true;
         return false;
     }
 
     public bool MantleCheck()
     {
-
         RaycastHit hit;
         bool isHit = Physics.CapsuleCast(transform.position,
             transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height, 0), 0.25f,transform.forward, out hit, 0.5f);
