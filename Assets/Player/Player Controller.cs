@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     public GameObject point1;
     public GameObject point2;
     public GameObject point3;
-    #region ���� ���� ����
+    #region 점프관련 변수
+
     public float jumpHeight = 2f; // ���� ����
     public float gravity = -9.81f; // �߷� ��
     private Vector3 velocity;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveInput;
     Vector3 movement;
     #endregion
-    #region ��ǲ�׼�
+    #region 인풋 액션
 
     PlayerInput playerInput;
     InputAction moveAction;
@@ -250,7 +251,7 @@ public class PlayerController : MonoBehaviour
                 isVaulting = true;
                 rb.isKinematic = true;
                 transform.position =
-                    new Vector3(transform.position.x, mantleObject.GetComponent<Collider>().bounds.center.y + mantleObject.GetComponent<Collider>().bounds.size.y / 2 - 1.5f, transform.position.z);
+                    new Vector3(transform.position.x, mantleObject.GetComponent<Collider>().bounds.center.y + mantleObject.GetComponent<Collider>().bounds.size.y / 2 - 1.7f, transform.position.z);
 
                 animator.Play("Braced Hang To Crouch");
             }
@@ -260,29 +261,15 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            if(true)
+            if (moveInput == Vector3.zero)
             {
-                if (moveInput == Vector3.zero)
-                {
-                    animator.SetTrigger("Jump");
-                }
-                else
-                {
-                    animator.SetTrigger("Jump");
-                    Jump();
-                }
+                animator.SetTrigger("Jump");
             }
-
-            else if(false)
+            else
             {
-                isVaulting = true;
-                rb.isKinematic = true;
-                transform.position =
-                    new Vector3(transform.position.x, mantleObject.GetComponent<Collider>().bounds.center.y + mantleObject.GetComponent<Collider>().bounds.size.y / 2 - 1.5f, transform.position.z);
-
-                animator.Play("Braced Hang To Crouch");
+                animator.SetTrigger("Jump");
+                Jump();
             }
-
         }
       
     }
@@ -321,22 +308,11 @@ public class PlayerController : MonoBehaviour
             // 박스의 크기를 로컬에서 월드 크기로 변환
             Vector3 size = mantleObject.GetComponent<Collider>().bounds.size;
             Vector3 result = new Vector3(hit.point.x, center.y + size.y / 2, hit.point.z);
-            handPos = result;
-            //rb.useGravity = false;
-            return true;
 
-            if (Physics.Raycast(point2.transform.position, point2.transform.forward, out hit, 0.5f) == false)
+            if(result.y - transform.position.y <= 2.5f)
             {
-
-
-            }
-
-            else
-            {
-                if (Physics.Raycast(point3.transform.position, point3.transform.forward, out hit, 0.5f) == false)
-                {
-                    return true;
-                }
+                handPos = result;
+                return true;
             }
         }
 
