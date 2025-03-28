@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     public CharacterController controller;
     public float WalkSpeed;
+    public float RunSpeed;
+
+    bool isRun;
+    float moveSpeed;
     [Space(20)]
 
     [Header("Mantle Sense Point")]
@@ -42,6 +46,8 @@ public class PlayerController : MonoBehaviour
     InputAction moveAction;
     InputAction lookAction;
     InputAction inputAction;
+    InputAction runAction;
+
     #endregion
     [Space(20)]
 
@@ -80,6 +86,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         moveAction = playerInput.actions.FindAction("Move");
         lookAction = playerInput.actions.FindAction("Look");
+        runAction = playerInput.actions.FindAction("Run");
 
     }
 
@@ -145,6 +152,11 @@ public class PlayerController : MonoBehaviour
         handPositionSphere.transform.position = handPos;
     }
 
+    public void OnRun(InputValue inputValue)
+    {
+        isRun = inputValue.Get<float>() == 1 ? true : false;
+        Debug.Log(isRun);
+    }
     private void InitializeMovement()
     {
         isVaulting = false;
@@ -161,15 +173,18 @@ public class PlayerController : MonoBehaviour
     {
         if (isVaulting) return;
 
-        moveInput = moveAction.ReadValue<Vector3>().normalized; // ���� �Է� �ޱ�
+
+        moveSpeed = isRun ? WalkSpeed : moveSpeed;
+        animator.SetBool("IsRun", isRun);
+
+        moveInput = moveAction.ReadValue<Vector3>().normalized; 
         movement = transform.forward * moveInput.z + transform.right * moveInput.x;
         movement.y = 0;
-
-
 
         #region Variation of Animator
         if(isGrounded)
         {
+            
             if (moveInput.x > 0)
             {
                 animator.SetFloat("Horizontal", 1);
@@ -214,7 +229,7 @@ public class PlayerController : MonoBehaviour
 
         if(!isVaulting && CanMove(movement))
         {
-            transform.position += movement * Time.deltaTime * WalkSpeed;
+            transform.position += movement * Time.deltaTime * moveSpeed;
         }
 
         isGrounded = GroundCheck();
