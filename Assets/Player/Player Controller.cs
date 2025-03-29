@@ -117,23 +117,19 @@ public class PlayerController : MonoBehaviour
         move();
         look();
         mantleCheck = MantleCheck();
-        ikWeight = mantleCheck ? 1 : 0;
-        Debug.Log(isGrounded);
 
-        //if(animator.gett)
-        //{
-        //    transform.position += animator.deltaPosition;
-        //    transform.rotation = animator.rootRotation;
-        //}
-        
+        ikWeight = mantleCheck ? 1 : 0;
+       
         if (isVaulting)
         {
+            ikWeight = Mathf.Lerp(ikWeight, 1, Time.deltaTime * 5f);
+            // 애니메이션이 제공하는 deltaPosition을 transform에 적용
             animator.applyRootMotion = true;
             transform.position += animator.deltaPosition;
             transform.rotation = animator.rootRotation;
 
 
-            // 애니메이션이 제공하는 deltaPosition을 transform에 적용
+            
             if (GetComponent<Collider>() is not null)
             {
                 GetComponent<Collider>().enabled = false;
@@ -155,6 +151,9 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
+        else ikWeight = Mathf.Lerp(ikWeight, 1, Time.deltaTime * 5f);
+
 
         handPositionSphere.transform.position = handPos;
     }
