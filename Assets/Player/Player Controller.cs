@@ -254,16 +254,20 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        
+
+
         rigObject.GetComponent<Rig>().weight = 1;
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
-        xRot -= lookInput.y * Time.deltaTime * 10f;
-
-        xRot = Mathf.Clamp(xRot, -60f, 60f);
+        
         yRot += lookInput.x * Time.deltaTime * 10f;
-
         playerTF.rotation = Quaternion.Euler(0, yRot, 0);
+
+        //if (playerCam.GetComponent<CamController>().IsCollided) return;
+
+        xRot -= lookInput.y * Time.deltaTime * 10f;
+        xRot = Mathf.Clamp(xRot, -60f, 60f);
         playerCamHolder.localRotation = Quaternion.Euler(xRot, 0, 0);
-        //Spine1.transform.localRotation = Quaternion.Euler(xRot, Spine1.transform.localRotation.y, Spine1.transform.localRotation.z);
     }
 
     public void OnJump(InputValue inputValue)
@@ -362,8 +366,13 @@ public class PlayerController : MonoBehaviour
     bool CanMove(Vector3 direction)
     {
         RaycastHit hit;
-        return !Physics.Raycast(point1.transform.position, direction, out hit, 0.3f);
+        return !Physics.Raycast(point1.transform.position, direction, out hit, 0.5f);
 
+    }
+
+    public bool Get_isVaulting()
+    {
+        return isVaulting;
     }
 
 }

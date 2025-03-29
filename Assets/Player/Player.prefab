@@ -429,6 +429,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   controller: {fileID: 0}
   WalkSpeed: 3
+  RunSpeed: 0
   point1: {fileID: 682811740546488040}
   point2: {fileID: 7039500577672938674}
   point3: {fileID: 7039160223849621949}
@@ -455,6 +456,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: d02fa49a84585ad47ad6dbf577dc4cc4, type: 3}
   m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -1223,7 +1225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50b3fc4bcf2ad1742becc560d00c6189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HeadBone: {fileID: 7490237127831642107}
+  CollisionDetect: 0
+  headBone: {fileID: 0}
+  CameraFollowTarget: {fileID: 0}
   aimPoint: {fileID: 2582604260732456047}
   stabilizeSpeed: 5
 --- !u!1 &3266553145828705523
@@ -2196,7 +2200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3029,7 +3033,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
