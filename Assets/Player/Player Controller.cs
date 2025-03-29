@@ -139,9 +139,6 @@ public class PlayerController : MonoBehaviour
                 GetComponent<Collider>().enabled = false;
             }
 
-            
-
-
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.96)
             {
 
@@ -272,6 +269,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputValue inputValue)
     {
+        if (isVaulting) return;
+
         isGrounded = GroundCheck();
 
         if (!isGrounded)
@@ -280,11 +279,18 @@ public class PlayerController : MonoBehaviour
             {
                 isVaulting = true;
                 rb.isKinematic = true;
-                transform.position =
-                    new Vector3(transform.position.x, mantleObject.GetComponent<Collider>().bounds.center.y + mantleObject.GetComponent<Collider>().bounds.size.y / 2 - 1.7f, transform.position.z);
+
+                RaycastHit hit;
+                bool isHit = Physics.CapsuleCast(transform.position + transform.forward * -0.25f,
+                transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height, 0), 0.25f, transform.forward, out hit, 0.75f);
+
+                Collider col = mantleObject.GetComponent<Collider>();
+                transform.position = new Vector3(hit.point.x, col.bounds.center.y + col.bounds.size.y / 2 - 1.7f, hit.point.z);
 
                 animator.Play("Braced Hang To Crouch");
             }
+
+            else return;
 
             
         }
@@ -308,19 +314,6 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        //if (!CanMove(movement)) return;
-
-
-        //// 기존 속도 초기화
-        //rb.linearVelocity = Vector3.zero;
-
-        //// 점프 방향 설정 (앞쪽 + 위쪽)
-        //Vector3 jumpDirection = (transform.forward * forwardForce + Vector3.up * jumpHeight);
-
-        //// 리지드바디에 힘 적용 (즉시 속도 설정)
-        //rb.linearVelocity = jumpDirection;
-
-        //rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
 
@@ -339,10 +332,11 @@ public class PlayerController : MonoBehaviour
 
     public bool MantleCheck()
     {
+
         RaycastHit hit;
-        bool isHit = Physics.CapsuleCast(transform.position,
-            transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height, 0), 0.25f,transform.forward, out hit, 0.5f);
-        Debug.DrawRay(point1.transform.position, point1.transform.forward * 0.5f, isHit ? Color.red : Color.white, Time.deltaTime, false);
+        bool isHit = Physics.CapsuleCast(transform.position + transform.forward * -0.25f,
+            transform.position + new Vector3(0, GetComponent<CapsuleCollider>().height, 0), 0.25f,transform.forward, out hit, 0.75f);
+        Debug.DrawRay(point1.transform.position + transform.forward * -0.25f, point1.transform.forward * 0.75f, isHit ? Color.red : Color.white, Time.deltaTime, false);
         if (isHit)
         {
             mantleObject = hit.transform.gameObject;
