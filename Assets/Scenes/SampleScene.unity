@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 318209974}
   - component: {fileID: 318209973}
   - component: {fileID: 318209972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 493403042}
   - component: {fileID: 493403041}
   - component: {fileID: 493403040}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 584934569}
   - component: {fileID: 584934568}
   - component: {fileID: 584934567}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1573,7 +1573,7 @@ GameObject:
   - component: {fileID: 856136653}
   - component: {fileID: 856136652}
   - component: {fileID: 856136651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2080,7 +2080,7 @@ GameObject:
   - component: {fileID: 1184578217}
   - component: {fileID: 1184578216}
   - component: {fileID: 1184578215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2348,7 +2348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327893402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2527,7 +2527,7 @@ GameObject:
   - component: {fileID: 1360020945}
   - component: {fileID: 1360020944}
   - component: {fileID: 1360020943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3323,7 +3323,7 @@ GameObject:
   - component: {fileID: 1751825563}
   - component: {fileID: 1751825562}
   - component: {fileID: 1751825561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3996,6 +3996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1527969288119920676, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6774166192802666983, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
       propertyPath: RunSpeed
       value: 4.5
@@ -4006,15 +4010,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6774166192802666983, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
       propertyPath: jumpHeight
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6996047254141855629, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7922033580533023930, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922033580533023930, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922033580533023930, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7922033580533023930, guid: 23d3b59802509cc44b4d483a7937fde1, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

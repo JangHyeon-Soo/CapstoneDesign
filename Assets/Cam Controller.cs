@@ -26,7 +26,7 @@ public class CamController : MonoBehaviour
         RaycastHit hit;
 
         bool isHit = Physics.Raycast(headBone.position, CameraFollowTarget.position, out hit, (CameraFollowTarget.position - headBone.position).magnitude);
-
+        Debug.DrawRay(headBone.position, (CameraFollowTarget.position - headBone.position), isHit ? Color.red : Color.white, Time.deltaTime);
         if(!isHit)
         {
             transform.position = Vector3.Lerp(transform.position, CameraFollowTarget.position, Time.deltaTime * stabilizeSpeed);
@@ -35,7 +35,7 @@ public class CamController : MonoBehaviour
 
         else
         {
-            transform.position = Vector3.Lerp(transform.position, hit.point + -(CameraFollowTarget.position - headBone.position).normalized * 0.2f, Time.deltaTime * stabilizeSpeed);
+            transform.position = Vector3.Lerp(transform.position, hit.point + -(CameraFollowTarget.position - headBone.position).normalized * 0.5f, Time.deltaTime * stabilizeSpeed);
             transform.rotation = Quaternion.Slerp(transform.rotation, CameraFollowTarget.rotation, Time.deltaTime * stabilizeSpeed);
         }
     }

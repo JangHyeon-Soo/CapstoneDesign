@@ -31,12 +31,13 @@ public class PlayerController : MonoBehaviour
     public GameObject point3;
     #region 점프관련 변수
 
+
     public float jumpHeight = 2f; // ���� ����
     public float gravity = -9.81f; // �߷� ��
     private Vector3 velocity;
     private bool isGrounded;
     private bool jumpPressed;
-
+    float forwardForce = 3f;
     private Vector3 moveInput;
     Vector3 movement;
     #endregion
@@ -124,18 +125,21 @@ public class PlayerController : MonoBehaviour
         //    transform.position += animator.deltaPosition;
         //    transform.rotation = animator.rootRotation;
         //}
-
-        if(isVaulting)
+        
+        if (isVaulting)
         {
             animator.applyRootMotion = true;
+            transform.position += animator.deltaPosition;
+            transform.rotation = animator.rootRotation;
+
+
             // 애니메이션이 제공하는 deltaPosition을 transform에 적용
             if (GetComponent<Collider>() is not null)
             {
                 GetComponent<Collider>().enabled = false;
             }
 
-            transform.position += animator.deltaPosition;
-            transform.rotation = animator.rootRotation;
+            
 
 
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.96)
@@ -307,8 +311,17 @@ public class PlayerController : MonoBehaviour
         //if (!CanMove(movement)) return;
 
 
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        rb.AddForce(Vector3.up * jumpHeight , ForceMode.VelocityChange);
+        // 기존 속도 초기화
+        rb.linearVelocity = Vector3.zero;
+
+        // 점프 방향 설정 (앞쪽 + 위쪽)
+        Vector3 jumpDirection = (transform.forward * forwardForce + Vector3.up * jumpHeight);
+
+        // 리지드바디에 힘 적용 (즉시 속도 설정)
+        rb.linearVelocity = jumpDirection;
+
+        //rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        //rb.AddForce(Vector3.up * jumpHeight , ForceMode.Force);
     }
 
     public bool GroundCheck()
