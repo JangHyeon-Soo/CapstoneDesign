@@ -311,17 +311,17 @@ public class PlayerController : MonoBehaviour
         //if (!CanMove(movement)) return;
 
 
-        // 기존 속도 초기화
-        rb.linearVelocity = Vector3.zero;
+        //// 기존 속도 초기화
+        //rb.linearVelocity = Vector3.zero;
 
-        // 점프 방향 설정 (앞쪽 + 위쪽)
-        Vector3 jumpDirection = (transform.forward * forwardForce + Vector3.up * jumpHeight);
+        //// 점프 방향 설정 (앞쪽 + 위쪽)
+        //Vector3 jumpDirection = (transform.forward * forwardForce + Vector3.up * jumpHeight);
 
-        // 리지드바디에 힘 적용 (즉시 속도 설정)
-        rb.linearVelocity = jumpDirection;
+        //// 리지드바디에 힘 적용 (즉시 속도 설정)
+        //rb.linearVelocity = jumpDirection;
 
         //rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        //rb.AddForce(Vector3.up * jumpHeight , ForceMode.Force);
+        rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
 
     public bool GroundCheck()
