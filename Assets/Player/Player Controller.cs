@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Transform playerTF;
     public Transform playerCamHolder;
     public Transform playerCam;
+    public Transform playerBody;
     
     [Space(20)]
 
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public float WalkSpeed;
     public float RunSpeed;
+
+    public float camRotation_y;
 
     bool isRun;
     float moveSpeed;
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour
     public GameObject handPositionSphere;
     public Transform originPosition;
 
+    public string vaultingAnimationName;
 
     [Range(0.1f, 0.5f)]
     public float IKHandsWidth = 0.2f;
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.CursorOff();
 
+        playerBody.localRotation = Quaternion.Euler(0, 0, 0);
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
 
@@ -122,6 +127,7 @@ public class PlayerController : MonoBehaviour
        
         if (isVaulting)
         {
+            
             ikWeight = Mathf.Lerp(ikWeight, 1, Time.deltaTime * 5f);
             // 애니메이션이 제공하는 deltaPosition을 transform에 적용
             animator.applyRootMotion = true;
@@ -187,7 +193,7 @@ public class PlayerController : MonoBehaviour
         moveSpeed = isRun ? RunSpeed : WalkSpeed;
         animator.SetBool("IsRun", isRun);
 
-        moveInput = moveAction.ReadValue<Vector3>().normalized; 
+        moveInput =  isVaulting ? Vector3.zero :moveAction.ReadValue<Vector3>().normalized; 
         movement = transform.forward * moveInput.z + transform.right * moveInput.x;
         movement.y = rb.linearVelocity.y;
 
@@ -266,7 +272,7 @@ public class PlayerController : MonoBehaviour
         //if (playerCam.GetComponent<CamController>().IsCollided) return;
 
         xRot -= lookInput.y * Time.deltaTime * 10f;
-        xRot = Mathf.Clamp(xRot, -60f, 60f);
+        xRot = Mathf.Clamp(xRot, -camRotation_y, camRotation_y);
         playerCamHolder.localRotation = Quaternion.Euler(xRot, 0, 0);
     }
 
@@ -278,8 +284,10 @@ public class PlayerController : MonoBehaviour
 
         if (!isGrounded)
         {
+
             if (mantleCheck)
             {
+
                 isVaulting = true;
                 rb.isKinematic = true;
 
@@ -290,12 +298,13 @@ public class PlayerController : MonoBehaviour
                 Collider col = mantleObject.GetComponent<Collider>();
                 transform.position = new Vector3(hit.point.x, col.bounds.center.y + col.bounds.size.y / 2 - 1.7f, hit.point.z);
 
-                animator.Play("Braced Hang To Crouch");
+                animator.Play(vaultingAnimationName);
+                return;
             }
 
             else return;
 
-            
+
         }
 
         else
@@ -349,7 +358,7 @@ public class PlayerController : MonoBehaviour
             Vector3 size = mantleObject.GetComponent<Collider>().bounds.size;
             Vector3 result = new Vector3(hit.point.x, center.y + size.y / 2, hit.point.z);
 
-            if(result.y - transform.position.y <= 2.5f)
+            if ( Mathf.Abs(result.y - transform.position.y )<= 2.5f)
             {
                 handPos = result;
                 return true;
@@ -372,7 +381,7 @@ public class PlayerController : MonoBehaviour
 
     public bool Get_isVaulting()
     {
-        return isVaulting;
+        return isVaulting || !isGrounded;
     }
 
 }

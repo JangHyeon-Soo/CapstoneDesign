@@ -1,0 +1,14 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="SK_AR4_Physics" ExportPath="/Script/Engine.PhysicsAsset'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_Physics.SK_AR4_Physics'"
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_Physics.SK_AR4_Physics:SkeletalBodySetup_0'"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_Physics.SK_AR4_Physics:SkeletalBodySetup_0'"
+      AggGeom=(BoxElems=((Center=(X=-0.339567,Y=-8.324283,Z=13.946292),X=6.420629,Y=9.468746,Z=91.939178),(Center=(X=0.000000,Y=0.215888,Z=0.373928),Rotation=(Pitch=-0.000000,Yaw=0.000000,Roll=30.000047),X=3.500000,Y=7.500000,Z=4.000000),(Center=(X=0.000008,Y=-1.985965,Z=13.320742),Rotation=(Pitch=0.000000,Yaw=-0.000000,Roll=-20.000022),X=2.305132,Y=18.642385,Z=6.145456)))
+      BoneName="b_gun_Root"
+      PhysicsType=PhysType_Simulated
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh="/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4.SK_AR4"
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)="/Script/Engine.SkeletalBodySetup'SkeletalBodySetup_0'"
+   SolverSettings=(CullDistance=1.000000,bUseLinearJointSolver=False)
+End Object

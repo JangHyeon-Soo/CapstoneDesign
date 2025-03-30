@@ -1,0 +1,42 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="Grenade_Launcher_A_PhysicsAsset" ExportPath="/Script/Engine.PhysicsAsset'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset'"
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_1" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:SkeletalBodySetup_1'"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:SkeletalBodySetup_0'"
+   End Object
+   Begin Object Class=/Script/Engine.PhysicsConstraintTemplate Name="PhysicsConstraintTemplate_0" ExportPath="/Script/Engine.PhysicsConstraintTemplate'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:PhysicsConstraintTemplate_0'"
+   End Object
+   Begin Object Class=/Script/Engine.BodySetup Name="BodySetup_6" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:BodySetup_6'"
+   End Object
+   Begin Object Class=/Script/Engine.BodySetup Name="BodySetup_11" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:BodySetup_11'"
+   End Object
+   Begin Object Name="SkeletalBodySetup_1" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:SkeletalBodySetup_1'"
+      AggGeom=(BoxElems=((Center=(X=22.175560,Y=0.000008,Z=11.526947),Rotation=(Pitch=-0.000000,Yaw=-89.999979,Roll=0.000000),X=4.799999,Y=61.299999,Z=9.799999),(Center=(X=0.541841,Y=0.000000,Z=1.750448),Rotation=(Pitch=-17.199624,Yaw=0.000000,Roll=-0.000000),X=7.500000,Y=2.000000,Z=14.000000),(Center=(X=18.500824,Y=-0.000069,Z=2.442436),X=29.500000,Y=5.000000,Z=7.500000)))
+      BoneName="Root_Bone1"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   Begin Object Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:SkeletalBodySetup_0'"
+      AggGeom=(SphylElems=((Center=(X=-0.001396,Y=-0.000000,Z=0.000313),Rotation=(Pitch=-0.000003,Yaw=89.999983,Roll=-89.848975),Radius=1.870931,Length=5.045065)))
+      BoneName="Ammo"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   Begin Object Name="PhysicsConstraintTemplate_0" ExportPath="/Script/Engine.PhysicsConstraintTemplate'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:PhysicsConstraintTemplate_0'"
+      DefaultInstance=(JointName="Ammo",ConstraintBone1="Ammo",ConstraintBone2="Root_Bone1",Pos2=(X=17.798822,Y=-0.000007,Z=14.022823),SecAxis2=(X=0.000000,Y=1.000000,Z=-0.000000))
+   End Object
+   Begin Object Name="BodySetup_6" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:BodySetup_6'"
+      AggGeom=(BoxElems=((Center=(X=22.175560,Y=0.000008,Z=11.526947),Rotation=(Pitch=-0.000000,Yaw=-89.999979,Roll=0.000000),X=4.799999,Y=61.299999,Z=9.799999),(Center=(X=0.541841,Y=0.000000,Z=1.750448),Rotation=(Pitch=-17.199624,Yaw=0.000000,Roll=-0.000000),X=7.500000,Y=2.000000,Z=14.000000),(Center=(X=18.500824,Y=-0.000069,Z=2.442436),X=29.500000,Y=5.000000,Z=7.500000)))
+      BoneName="Root_Bone1"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   Begin Object Name="BodySetup_11" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A_PhysicsAsset.Grenade_Launcher_A_PhysicsAsset:BodySetup_11'"
+      AggGeom=(SphylElems=((Center=(X=-0.001396,Y=-0.000000,Z=0.000313),Rotation=(Pitch=-0.000003,Yaw=89.999983,Roll=-89.848975),Radius=1.870931,Length=5.045065)))
+      BoneName="Ammo"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh="/Game/MilitaryWeapSilver/Weapons/Grenade_Launcher_A.Grenade_Launcher_A"
+   BoundsBodies(0)=0
+   BoundsBodies(1)=1
+   SkeletalBodySetups(0)="/Script/Engine.SkeletalBodySetup'SkeletalBodySetup_0'"
+   SkeletalBodySetups(1)="/Script/Engine.SkeletalBodySetup'SkeletalBodySetup_1'"
+   ConstraintSetup(0)="/Script/Engine.PhysicsConstraintTemplate'PhysicsConstraintTemplate_0'"
+   SolverSettings=(CullDistance=1.000000,bUseLinearJointSolver=False)
+End Object

@@ -1,0 +1,9 @@
+Begin Object Class=/Script/Engine.Skeleton Name="Assault_Rifle_A_Skeleton" ExportPath="/Script/Engine.Skeleton'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_Skeleton.Assault_Rifle_A_Skeleton'"
+   Begin Object Class=/Script/Engine.AnimCurveMetaData Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_Skeleton.Assault_Rifle_A_Skeleton:AnimCurveMetaData_0'"
+   End Object
+   Begin Object Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_Skeleton.Assault_Rifle_A_Skeleton:AnimCurveMetaData_0'"
+   End Object
+   BoneTree(5)=()
+   PreviewSkeletalMesh="/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A.Assault_Rifle_A"
+   AssetUserData(0)="/Script/Engine.AnimCurveMetaData'AnimCurveMetaData_0'"
+End Object

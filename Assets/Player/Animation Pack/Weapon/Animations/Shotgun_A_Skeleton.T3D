@@ -1,0 +1,39 @@
+Begin Object Class=/Script/Engine.Skeleton Name="Shotgun_A_Skeleton" ExportPath="/Script/Engine.Skeleton'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton'"
+   Begin Object Class=/Script/Engine.AnimCurveMetaData Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:AnimCurveMetaData_0'"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalMeshSocket Name="SkeletalMeshSocket_6" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_6'"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalMeshSocket Name="SkeletalMeshSocket_5" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_5'"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalMeshSocket Name="SkeletalMeshSocket_3" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_3'"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalMeshSocket Name="SkeletalMeshSocket_1" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_1'"
+   End Object
+   Begin Object Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:AnimCurveMetaData_0'"
+   End Object
+   Begin Object Name="SkeletalMeshSocket_6" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_6'"
+      SocketName="AmmoSocket"
+      BoneName="Ammo"
+   End Object
+   Begin Object Name="SkeletalMeshSocket_5" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_5'"
+      SocketName="AmmoSocketEmpty"
+      BoneName="Ammo_Empty"
+   End Object
+   Begin Object Name="SkeletalMeshSocket_3" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_3'"
+      SocketName="MuzzleFlash"
+      BoneName="Grip_Bone"
+      RelativeLocation=(X=59.603718,Y=0.000000,Z=12.356133)
+   End Object
+   Begin Object Name="SkeletalMeshSocket_1" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/MilitaryWeapSilver/Weapons/Animations/Shotgun_A_Skeleton.Shotgun_A_Skeleton:SkeletalMeshSocket_1'"
+      SocketName="AmmoEject"
+      BoneName="Grip_Bone"
+      RelativeLocation=(X=22.269428,Y=0.000002,Z=11.927595)
+   End Object
+   BoneTree(6)=()
+   Sockets(0)="/Script/Engine.SkeletalMeshSocket'SkeletalMeshSocket_3'"
+   Sockets(1)="/Script/Engine.SkeletalMeshSocket'SkeletalMeshSocket_1'"
+   Sockets(2)="/Script/Engine.SkeletalMeshSocket'SkeletalMeshSocket_5'"
+   Sockets(3)="/Script/Engine.SkeletalMeshSocket'SkeletalMeshSocket_6'"
+   PreviewSkeletalMesh="/Game/MilitaryWeapSilver/Weapons/Shotgun_A.Shotgun_A"
+   AssetUserData(0)="/Script/Engine.AnimCurveMetaData'AnimCurveMetaData_0'"
+End Object

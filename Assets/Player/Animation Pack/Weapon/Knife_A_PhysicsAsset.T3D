@@ -1,0 +1,20 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="Knife_A_PhysicsAsset" ExportPath="/Script/Engine.PhysicsAsset'/Game/MilitaryWeapSilver/Weapons/Knife_A_PhysicsAsset.Knife_A_PhysicsAsset'"
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Knife_A_PhysicsAsset.Knife_A_PhysicsAsset:SkeletalBodySetup_0'"
+   End Object
+   Begin Object Class=/Script/Engine.BodySetup Name="BodySetup_1" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Knife_A_PhysicsAsset.Knife_A_PhysicsAsset:BodySetup_1'"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Knife_A_PhysicsAsset.Knife_A_PhysicsAsset:SkeletalBodySetup_0'"
+      AggGeom=(BoxElems=((Center=(X=4.171693,Y=-0.000027,Z=10.920799),Rotation=(Pitch=0.000007,Yaw=-89.999936,Roll=26.999957),X=1.500000,Y=5.299999,Z=30.299999)))
+      BoneName="Root_Bone1"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   Begin Object Name="BodySetup_1" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Knife_A_PhysicsAsset.Knife_A_PhysicsAsset:BodySetup_1'"
+      AggGeom=(BoxElems=((Center=(X=4.171693,Y=-0.000027,Z=10.920799),Rotation=(Pitch=0.000007,Yaw=-89.999936,Roll=26.999957),X=1.500000,Y=5.299999,Z=30.299999)))
+      BoneName="Root_Bone1"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh="/Game/MilitaryWeapSilver/Weapons/Knife_A.Knife_A"
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)="/Script/Engine.SkeletalBodySetup'SkeletalBodySetup_0'"
+   SolverSettings=(CullDistance=1.000000,bUseLinearJointSolver=False)
+End Object

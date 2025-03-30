@@ -1,0 +1,20 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="SK_AR4_X_Physics" ExportPath="/Script/Engine.PhysicsAsset'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Physics.SK_AR4_X_Physics'"
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Physics.SK_AR4_X_Physics:SkeletalBodySetup_0'"
+   End Object
+   Begin Object Class=/Script/Engine.BodySetup Name="BodySetup_3" ExportPath="/Script/Engine.BodySetup'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Physics.SK_AR4_X_Physics:BodySetup_3'"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Physics.SK_AR4_X_Physics:SkeletalBodySetup_0'"
+      AggGeom=(BoxElems=((Center=(X=-0.339588,Y=-9.763573,Z=13.946274),X=5.920631,Y=9.468746,Z=91.939171),(Center=(X=0.000124,Y=0.011231,Z=-0.006484),Rotation=(Pitch=0.000001,Yaw=0.000000,Roll=30.000038),X=2.500000,Y=9.500000,Z=4.500000),(Center=(X=-0.000082,Y=-1.848982,Z=13.589883),Rotation=(Pitch=-0.000001,Yaw=-0.000000,Roll=-20.000016),X=2.305132,Y=18.642384,Z=6.645460)))
+      BoneName="b_gun_Root"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   Begin Object Name="BodySetup_3" ExportPath="/Script/Engine.BodySetup'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Physics.SK_AR4_X_Physics:BodySetup_3'"
+      AggGeom=(BoxElems=((Center=(X=-0.339588,Y=-9.763573,Z=13.946274),X=5.920631,Y=9.468746,Z=91.939171),(Center=(X=0.000124,Y=0.011231,Z=-0.006484),Rotation=(Pitch=0.000001,Yaw=0.000000,Roll=30.000038),X=2.500000,Y=9.500000,Z=4.500000),(Center=(X=-0.000082,Y=-1.848982,Z=13.589883),Rotation=(Pitch=-0.000001,Yaw=-0.000000,Roll=-20.000016),X=2.305132,Y=18.642384,Z=6.645460)))
+      BoneName="b_gun_Root"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh="/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X.SK_AR4_X"
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)="/Script/Engine.SkeletalBodySetup'SkeletalBodySetup_0'"
+   SolverSettings=(CullDistance=1.000000,bUseLinearJointSolver=False)
+End Object

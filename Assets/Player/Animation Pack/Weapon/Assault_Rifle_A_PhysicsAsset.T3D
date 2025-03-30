@@ -1,0 +1,20 @@
+Begin Object Class=/Script/Engine.PhysicsAsset Name="Assault_Rifle_A_PhysicsAsset" ExportPath="/Script/Engine.PhysicsAsset'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_PhysicsAsset.Assault_Rifle_A_PhysicsAsset'"
+   Begin Object Class=/Script/Engine.SkeletalBodySetup Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_PhysicsAsset.Assault_Rifle_A_PhysicsAsset:SkeletalBodySetup_0'"
+   End Object
+   Begin Object Class=/Script/Engine.BodySetup Name="BodySetup_8" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_PhysicsAsset.Assault_Rifle_A_PhysicsAsset:BodySetup_8'"
+   End Object
+   Begin Object Name="SkeletalBodySetup_0" ExportPath="/Script/Engine.SkeletalBodySetup'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_PhysicsAsset.Assault_Rifle_A_PhysicsAsset:SkeletalBodySetup_0'"
+      AggGeom=(BoxElems=((Center=(X=14.636812,Y=0.000006,Z=8.733068),Rotation=(Pitch=-0.000000,Yaw=-89.999979,Roll=0.000000),X=4.799999,Y=72.300003,Z=12.799999),(Rotation=(Pitch=-17.999613,Yaw=0.000000,Roll=-0.000000),X=7.500000,Y=4.000000,Z=12.000000),(Center=(X=18.081688,Y=0.000000,Z=0.000000),Rotation=(Pitch=12.201066,Yaw=0.000000,Roll=0.000000),X=7.500000,Y=3.000000,Z=18.000000),(Center=(X=62.025349,Y=0.000000,Z=11.227142),X=22.500000,Y=3.000000,Z=3.000000)))
+      BoneName="Root_Bone1"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   Begin Object Name="BodySetup_8" ExportPath="/Script/Engine.BodySetup'/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A_PhysicsAsset.Assault_Rifle_A_PhysicsAsset:BodySetup_8'"
+      AggGeom=(BoxElems=((Center=(X=14.636812,Y=0.000006,Z=8.733068),Rotation=(Pitch=-0.000000,Yaw=-89.999979,Roll=0.000000),X=4.799999,Y=72.300003,Z=12.799999),(Rotation=(Pitch=-17.999613,Yaw=0.000000,Roll=-0.000000),X=7.500000,Y=4.000000,Z=12.000000),(Center=(X=18.081688,Y=0.000000,Z=0.000000),Rotation=(Pitch=12.201066,Yaw=0.000000,Roll=0.000000),X=7.500000,Y=3.000000,Z=18.000000),(Center=(X=62.025349,Y=0.000000,Z=11.227142),X=22.500000,Y=3.000000,Z=3.000000)))
+      BoneName="Root_Bone1"
+      CollisionTraceFlag=CTF_UseSimpleAsComplex
+   End Object
+   PreviewSkeletalMesh="/Game/MilitaryWeapSilver/Weapons/Assault_Rifle_A.Assault_Rifle_A"
+   BoundsBodies(0)=0
+   SkeletalBodySetups(0)="/Script/Engine.SkeletalBodySetup'SkeletalBodySetup_0'"
+   SolverSettings=(CullDistance=1.000000,bUseLinearJointSolver=False)
+End Object

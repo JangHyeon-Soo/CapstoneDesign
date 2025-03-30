@@ -1,0 +1,17 @@
+Begin Object Class=/Script/Engine.Skeleton Name="SK_AR4_X_Skeleton" ExportPath="/Script/Engine.Skeleton'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Skeleton.SK_AR4_X_Skeleton'"
+   Begin Object Class=/Script/Engine.AnimCurveMetaData Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Skeleton.SK_AR4_X_Skeleton:AnimCurveMetaData_0'"
+   End Object
+   Begin Object Class=/Script/Engine.SkeletalMeshSocket Name="SkeletalMeshSocket_0" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Skeleton.SK_AR4_X_Skeleton:SkeletalMeshSocket_0'"
+   End Object
+   Begin Object Name="AnimCurveMetaData_0" ExportPath="/Script/Engine.AnimCurveMetaData'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Skeleton.SK_AR4_X_Skeleton:AnimCurveMetaData_0'"
+   End Object
+   Begin Object Name="SkeletalMeshSocket_0" ExportPath="/Script/Engine.SkeletalMeshSocket'/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X_Skeleton.SK_AR4_X_Skeleton:SkeletalMeshSocket_0'"
+      SocketName="Muzzle"
+      BoneName="b_gun_muzzleflash"
+      RelativeRotation=(Pitch=90.000000,Yaw=37.104233,Roll=-52.895569)
+   End Object
+   BoneTree(8)=()
+   Sockets(0)="/Script/Engine.SkeletalMeshSocket'SkeletalMeshSocket_0'"
+   PreviewSkeletalMesh="/Game/FPS_Weapon_Bundle/Weapons/Meshes/AR4/SK_AR4_X.SK_AR4_X"
+   AssetUserData(0)="/Script/Engine.AnimCurveMetaData'AnimCurveMetaData_0'"
+End Object
