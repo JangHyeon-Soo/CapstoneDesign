@@ -16,7 +16,25 @@ public class CamController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.Lerp(transform.position, CameraFollowTarget.position, Time.deltaTime * (playerController.Get_isVaulting()? 20f : stabilizeSpeed));
-        transform.rotation = Quaternion.Slerp(transform.rotation, CameraFollowTarget.rotation, Time.deltaTime * (playerController.Get_isVaulting() ? 20f : stabilizeSpeed));
+        switch (playerController.cameraMode)
+        {
+            case GameManager.CameraMode.FP:
+                transform.position = Vector3.Lerp(transform.position, CameraFollowTarget.position, Time.deltaTime * (playerController.Get_isVaulting() ? 7f : 3f));
+                Quaternion targetRot = CameraFollowTarget.rotation;
+                targetRot.z = 0;
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * (playerController.Get_isVaulting() ? 7f : 3f));
+                break;
+
+
+            case GameManager.CameraMode.TP:
+                transform.position = Vector3.Lerp(transform.position, playerController.thirdPersonTF.position, Time.deltaTime * 5);
+                transform.rotation = Quaternion.Slerp(transform.rotation, playerController.thirdPersonTF.rotation, Time.deltaTime * 5);
+                break;
+
+                break;
+
+        }
+
+        
     }
 }

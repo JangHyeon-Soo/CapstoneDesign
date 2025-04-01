@@ -10,11 +10,24 @@ public class PlayerController : MonoBehaviour
     [Header("Player")]
 
     public Transform playerTF;
-    public Transform playerCamHolder;
-    public Transform playerCam;
+    public Transform playerModel;
     public Transform playerBody;
-    
+    public GameManager.CameraMode cameraMode;
+
+
     [Space(20)]
+    [Header("Camera")]
+    public Transform camera;
+
+    [Header("First Person")]
+    public Transform playerCamHolder;
+    [Space(10)]
+
+    [Header("Third Person")]
+    public Transform thirdPersonCamHolder;
+    public Transform thirdPersonTF;
+    [Space(10)]
+
 
     [Header("Movement")]
     public Rigidbody rb;
@@ -85,6 +98,16 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.CursorOff();
 
+        switch (cameraMode)
+        {
+            case GameManager.CameraMode.FP:
+                
+                break;
+
+            case GameManager.CameraMode.TP:
+                break;
+        }
+
         playerBody.localRotation = Quaternion.Euler(0, 0, 0);
         controller = GetComponent<CharacterController>();
         rb = GetComponent<Rigidbody>();
@@ -119,6 +142,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         move();
         look();
         mantleCheck = MantleCheck();
@@ -193,9 +217,29 @@ public class PlayerController : MonoBehaviour
         moveSpeed = isRun ? RunSpeed : WalkSpeed;
         animator.SetBool("IsRun", isRun);
 
-        moveInput =  isVaulting ? Vector3.zero :moveAction.ReadValue<Vector3>().normalized; 
-        movement = transform.forward * moveInput.z + transform.right * moveInput.x;
-        movement.y = rb.linearVelocity.y;
+        moveInput =  isVaulting ? Vector3.zero :moveAction.ReadValue<Vector3>().normalized;
+
+        switch (cameraMode)
+        {
+            case GameManager.CameraMode.FP:
+                movement = camera.forward * moveInput.z + camera.right * moveInput.x;
+                break;
+
+            case GameManager.CameraMode.TP:
+                if (moveInput != Vector3.zero)
+                {
+                    Quaternion targetRot = thirdPersonCamHolder.rotation;
+                    //targetRot.x = 0; targetRot.z = 0;
+                    playerModel.localRotation = targetRot;
+                }
+
+                transform.rotation = Quaternion.Euler(0, thirdPersonCamHolder.rotation.y, 0);
+                movement = camera.forward * moveInput.z + camera.right * moveInput.x;
+                break;
+        }
+
+        
+        //movement.y = rb.linearVelocity.y;
 
         #region Variation of Animator
         if(isGrounded)
@@ -254,6 +298,7 @@ public class PlayerController : MonoBehaviour
 
     public void look()
     {
+        Debug.DrawRay(transform.position, transform.forward * 5f, Color.white);
         if (isVaulting)
         {
             rigObject.GetComponent<Rig>().weight = 0;
@@ -261,19 +306,32 @@ public class PlayerController : MonoBehaviour
         }
 
         
-
-
         rigObject.GetComponent<Rig>().weight = 1;
         Vector2 lookInput = lookAction.ReadValue<Vector2>();
-        
+        Debug.Log(lookInput);
         yRot += lookInput.x * Time.deltaTime * 10f;
-        playerTF.rotation = Quaternion.Euler(0, yRot, 0);
-
+        
         //if (playerCam.GetComponent<CamController>().IsCollided) return;
 
         xRot -= lookInput.y * Time.deltaTime * 10f;
         xRot = Mathf.Clamp(xRot, -camRotation_y, camRotation_y);
-        playerCamHolder.localRotation = Quaternion.Euler(xRot, 0, 0);
+
+        switch (cameraMode)
+        {
+
+            case GameManager.CameraMode.FP:
+                
+                playerCamHolder.localRotation = Quaternion.Euler(xRot, 0, 0);
+                transform.rotation = Quaternion.Euler(0, yRot, 0);
+                break;
+
+            case GameManager.CameraMode.TP:
+                thirdPersonCamHolder.rotation = Quaternion.Euler(0, yRot, 0);
+                break;
+        }
+
+        
+
     }
 
     public void OnJump(InputValue inputValue)
@@ -382,6 +440,25 @@ public class PlayerController : MonoBehaviour
     public bool Get_isVaulting()
     {
         return isVaulting || !isGrounded;
+    }
+
+    public void OnSwitchCameraMode(InputValue value)
+    {
+        switch(cameraMode)
+        {
+            case GameManager.CameraMode.FP:
+                rigObject.GetComponent<Rig>().weight = 1;
+                cameraMode = GameManager.CameraMode.TP;
+                break;
+
+
+            case GameManager.CameraMode.TP:
+                rigObject.GetComponent<Rig>().weight = 0;
+                cameraMode = GameManager.CameraMode.FP;
+                break;
+        }
+
+        Debug.Log(cameraMode);
     }
 
 }
