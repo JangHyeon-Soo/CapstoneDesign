@@ -8,6 +8,7 @@ Github : https://github.com/JangHyeon-Soo/CapstoneDesign.git
 ### 처음
 1. 원하는 폴더에 CMD로 리포지토리 PULL또는 클론
 
+
 ### 작업 후
 1. git add .
 2. git commit -m "커밋 메시지"
